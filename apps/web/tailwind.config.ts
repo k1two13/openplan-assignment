@@ -8,7 +8,17 @@ const config: Config = {
     '../../packages/ui/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gray: '#1a1a1a',
+        black: '#111111',
+      },
+      screens: {
+        desktop: '1440px',
+        tab: '768px',
+        mobile: '375px',
+      },
+    },
   },
   plugins: [],
 };

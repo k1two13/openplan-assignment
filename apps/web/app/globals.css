@@ -29,6 +29,9 @@ body {
 }
 
 body {
+  font-family:
+    'Pretendard',
+    -apple-system;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
