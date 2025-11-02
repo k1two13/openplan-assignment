@@ -39,7 +39,7 @@ export default function ResultPage() {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center bg-gray-300/30"
+      className="min-h-screen flex flex-col items-center bg-gray-300/30 text-[15px]"
       style={
         displayData && backgroundImage
           ? {
@@ -55,24 +55,29 @@ export default function ResultPage() {
         고희주
       </div>
 
-      <div className="p-5 w-full flex flex-col md:flex-row gap-10 justify-center items-center flex-1">
-        <div className="w-full md:w-1/2 flex-shrink-0">
-          <div className="bg-white rounded-2xl overflow-hidden shadow-xl">
-            {displayData ? (
+      <div className="w-full flex flex-col desktop:flex-row gap-10 justify-center items-center flex-1">
+        <div className="w-full desktop:w-1/2 px-5 flex justify-center items-center">
+          {displayData ? (
+            <div className="relative w-full aspect-[3/2]">
               <Image
-                width={660}
-                height={440}
+                fill
                 src={displayData?.download_url ?? ''}
                 alt={displayData?.author ?? 'photo'}
-                className="w-full h-full object-contain"
+                className="object-contain rounded-2xl shadow-xl"
+                sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 50vw"
               />
-            ) : (
-              <Skeleton width="100%" height={440} className="w-full" rounded />
-            )}
-          </div>
+            </div>
+          ) : (
+            <Skeleton
+              height="100%"
+              width="100%"
+              className="w-full aspect-[3/2]"
+              rounded
+            />
+          )}
         </div>
 
-        <div className="w-full md:w-1/2 flex flex-col gap-4 text-md h-full mt-16">
+        <div className="w-full desktop:w-1/2 flex flex-col gap-4 text-md h-full mt-10 px-5">
           {displayData ? (
             <div className="bg-white rounded-2xl shadow-xl w-full p-5 h-[82px]">
               <div className="flex justify-between items-center">
