@@ -38,14 +38,14 @@ export default function Home() {
     <>
       {isLoading && <Loader />}
       <main className="flex min-h-screen flex-col items-center bg-white">
-        <div className="flex justify-center items-center text-gray h-[52px] w-full">
+        <div className="flex justify-center items-center text-gray h-[52px] w-full text-[15px]">
           고희주
         </div>
-        <div className="flex flex-col items-center justify-center w-full flex-1 text-3xl font-bold text-black">
+        <div className="flex flex-col items-center justify-center w-full flex-1 text-[28px] desktop:text-[32px] font-semibold text-black">
           <h1>안녕하세요</h1>
           <h1>고희주입니다.</h1>
         </div>
-        <div className="w-full flex justify-center items-center h-[120px] desktop:h-[140px]">
+        <div className="w-full flex justify-center items-center desktop:h-[140px] h-32">
           <Button
             variant="default"
             size="large"
