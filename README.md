@@ -115,26 +115,26 @@ pnpm build
 
 3. **로딩 상태**
    - 데이터가 없을 때 `Skeleton` 컴포넌트로 로딩 상태 표시
-   - 이미지, 메타데이터 카드, 버튼 각각에 대해 스켈레톤 제공
+   - 이미지, 메타데이터 카드 각각에 대해 스켈레톤 제공
 
 #### 상태 관리
 
 **Zustand Store (`usePhotoStore`)**
 
-- `photo`: 조회한 사진 데이터 (`Photo | null`)
-- `hasViewed`: 사진 조회 이력 여부 (`boolean`)
+- `photo`: 조회한 사진 데이터
+- `hasViewed`: 사진 조회 이력 여부
 - `setHasViewed`: 조회 이력 상태 업데이트
 
 **로컬 상태**
 
 - `clicked`: 버튼 클릭 상태 (디바운스 처리용)
-- `buttonSize`: 버튼 크기 (`'medium' | 'large'`)
+- `buttonSize`: 버튼 크기
 - `debouncedClicked`: 디바운스된 클릭 상태
 
 #### 주요 훅
 
-- `useDebounce`: 클릭 이벤트 디바운스 처리 (500ms), 중복 클릭 방지
-- `useRouter`: Next.js 라우터, 프로그래매틱 네비게이션 (`router.push`)
+- `useDebounce`: 클릭 이벤트 디바운스 처리, 중복 클릭 방지
+- `useRouter`: Next.js 라우터
 
 #### 스타일링
 
