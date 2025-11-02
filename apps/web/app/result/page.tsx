@@ -3,16 +3,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { usePhotoStore } from '@/store/usePhotoStore';
-import { Button, Skeleton } from '@openplan/ui';
 import Image from 'next/image';
 import { useDebounce } from '@/hooks/useDebounce';
+import { Button } from '@openplan/ui/src/button/Button';
+import { Skeleton } from '@openplan/ui/src/skeleton/Skeleton';
 
 export default function ResultPage() {
   const router = useRouter();
   const { photo, hasViewed, setHasViewed } = usePhotoStore();
   const [clicked, setClicked] = useState(false);
   const debouncedClicked = useDebounce(clicked, 500);
-  const [buttonSize, setButtonSize] = useState<'medium' | 'large'>('large');
+  const [buttonSize, setButtonSize] = useState<'medium' | 'large'>('medium');
 
   const displayData = photo;
   const backgroundImage = displayData?.download_url;
@@ -109,8 +110,8 @@ export default function ResultPage() {
           ) : (
             <Skeleton
               width="100%"
-              height="100%"
-              className="rounded-2xl shadow-xl"
+              height="82px"
+              className="rounded-2xl shadow-xl w-full h-full"
               rounded
             />
           )}
@@ -135,7 +136,7 @@ export default function ResultPage() {
           ) : (
             <Skeleton
               width="100%"
-              height="100%"
+              height="82px"
               className="rounded-2xl shadow-xl"
               rounded
             />
@@ -173,24 +174,20 @@ export default function ResultPage() {
           ) : (
             <Skeleton
               width="100%"
-              height="100%"
+              height="140px"
               className="rounded-2xl shadow-xl"
               rounded
             />
           )}
 
           <div className="w-full flex justify-center items-center">
-            {displayData ? (
-              <Button
-                variant="default"
-                size={buttonSize}
-                onClick={onClickBackButton}
-              >
-                이전
-              </Button>
-            ) : (
-              <Skeleton width="100%" height="100%" rounded />
-            )}
+            <Button
+              variant="default"
+              size={buttonSize}
+              onClick={onClickBackButton}
+            >
+              이전
+            </Button>
           </div>
         </div>
       </div>

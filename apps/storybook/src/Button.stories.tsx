@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@openplan/ui';
+import { Button } from '@openplan/ui/src/button/Button';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',

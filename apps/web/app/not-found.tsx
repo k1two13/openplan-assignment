@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button } from '@openplan/ui';
+import { Button } from '@openplan/ui/src/button/Button';
 
 export default function NotFound() {
   return (

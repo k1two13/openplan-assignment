@@ -1,4 +1,4 @@
-export { Button } from './Button';
-export type { ButtonProps } from './Button';
-export { Skeleton } from './Skeleton';
-export type { SkeletonProps } from './Skeleton';
+export { Button } from './src/button/Button';
+export type { ButtonProps } from './src/button/Button';
+export { Skeleton } from './src/skeleton/Skeleton';
+export type { SkeletonProps } from './src/skeleton/Skeleton';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@openplan/ui';
+import { Button } from '@openplan/ui/src/button/Button';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Loader } from '@/components/Loader';
