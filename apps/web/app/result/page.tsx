@@ -12,6 +12,7 @@ export default function ResultPage() {
   const { photo, hasViewed, setHasViewed } = usePhotoStore();
   const [clicked, setClicked] = useState(false);
   const debouncedClicked = useDebounce(clicked, 500);
+  const [buttonSize, setButtonSize] = useState<'medium' | 'large'>('large');
 
   const displayData = photo;
   const backgroundImage = displayData?.download_url;
@@ -37,6 +38,20 @@ export default function ResultPage() {
     }
   }, [debouncedClicked, router, setHasViewed]);
 
+  useEffect(() => {
+    const checkScreenSize = () => {
+      if (window.innerWidth >= 768) {
+        setButtonSize('medium');
+      } else {
+        setButtonSize('large');
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
     <div
       className="min-h-screen flex flex-col items-center bg-gray-300/30 text-[15px]"
@@ -55,8 +70,8 @@ export default function ResultPage() {
         고희주
       </div>
 
-      <div className="w-full flex flex-col desktop:flex-row gap-10 justify-center items-center flex-1">
-        <div className="w-full desktop:w-1/2 px-5 flex justify-center items-center">
+      <div className="w-full flex flex-col desktop:flex-row desktop:gap-10 flex-1 items-center">
+        <div className="w-full desktop:w-1/2 px-5 flex justify-center items-center tab:pt-10 mobile:pt-10">
           {displayData ? (
             <div className="relative w-full aspect-[3/2]">
               <Image
@@ -77,10 +92,10 @@ export default function ResultPage() {
           )}
         </div>
 
-        <div className="w-full desktop:w-1/2 flex flex-col gap-4 text-md h-full mt-10 px-5">
+        <div className="w-full desktop:w-1/2 flex flex-col gap-4 text-md h-full mt-16 px-5">
           {displayData ? (
-            <div className="bg-white rounded-2xl shadow-xl w-full p-5 h-[82px]">
-              <div className="flex justify-between items-center">
+            <div className="bg-white rounded-2xl shadow-xl w-full p-5 h-[140px] tab:h-[82px]">
+              <div className="flex flex-col tab:flex-row tab:justify-between items-start tab:items-center gap-2 tab:gap-0">
                 <div className="flex-1">
                   <span className="text-black">id</span>
                   <p className="text-black/50">{displayData?.id}</p>
@@ -94,15 +109,15 @@ export default function ResultPage() {
           ) : (
             <Skeleton
               width="100%"
-              height={82}
+              height="100%"
               className="rounded-2xl shadow-xl"
               rounded
             />
           )}
 
           {displayData ? (
-            <div className="bg-white rounded-2xl shadow-xl w-full p-5 h-[82px]">
-              <div className="flex justify-between items-center">
+            <div className="bg-white rounded-2xl shadow-xl w-full p-5 h-[140px] tab:h-[82px]">
+              <div className="flex flex-col tab:flex-row tab:justify-between items-start tab:items-center gap-2 tab:gap-0">
                 <div className="flex-1">
                   <span className="text-black">width</span>
                   <p className="text-black/50">
@@ -120,7 +135,7 @@ export default function ResultPage() {
           ) : (
             <Skeleton
               width="100%"
-              height={82}
+              height="100%"
               className="rounded-2xl shadow-xl"
               rounded
             />
@@ -158,7 +173,7 @@ export default function ResultPage() {
           ) : (
             <Skeleton
               width="100%"
-              height={140}
+              height="100%"
               className="rounded-2xl shadow-xl"
               rounded
             />
@@ -168,13 +183,13 @@ export default function ResultPage() {
             {displayData ? (
               <Button
                 variant="default"
-                size="medium"
+                size={buttonSize}
                 onClick={onClickBackButton}
               >
                 이전
               </Button>
             ) : (
-              <Skeleton width={154} height={48} rounded />
+              <Skeleton width="100%" height="100%" rounded />
             )}
           </div>
         </div>
