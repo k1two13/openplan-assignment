@@ -92,11 +92,9 @@ Storybook은 http://localhost:6006 에서 실행됩니다.
 pnpm build
 ```
 
-## 배포
+## Vercel 배포
 
-### Vercel 배포
-
-https://openplan-assignment-web-rose.vercel.app/
+### https://openplan-assignment-web-rose.vercel.app/
 
 ## 페이지 상세 설명
 
